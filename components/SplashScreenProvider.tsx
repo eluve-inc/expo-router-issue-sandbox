@@ -1,9 +1,4 @@
-import {
-  PropsWithChildren,
-  createContext,
-  useCallback,
-  useContext,
-} from 'react';
+import { PropsWithChildren, createContext, useCallback, useContext } from 'react';
 import { Text } from 'react-native';
 import Animated, {
   SlideOutUp,
@@ -12,26 +7,19 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-
-const SetSplashScreenLoader = createContext<
-  ((loading: boolean) => void) | null
->(null);
+const SetSplashScreenLoader = createContext<((loading: boolean) => void) | null>(null);
 
 export const useSetSplashScreenLoader = () => {
   const setSplashScreenLoading = useContext(SetSplashScreenLoader);
 
   if (!setSplashScreenLoading) {
-    throw new Error(
-      'useSetSplashScreenLoading must be used within a SplashScreenProvider',
-    );
+    throw new Error('useSetSplashScreenLoading must be used within a SplashScreenProvider');
   }
 
   return setSplashScreenLoading;
 };
 
-export const SplashScreenProvider: React.FC<PropsWithChildren> = ({
-  children,
-}) => {
+export const SplashScreenProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const loaderHeight = useSharedValue(0);
 
   const loaderStyles = useAnimatedStyle(() => ({
@@ -56,10 +44,10 @@ export const SplashScreenProvider: React.FC<PropsWithChildren> = ({
       if (loading) {
         loaderHeight.value = 100;
       } else {
-        loaderHeight.value = withTiming(0, { duration: 600 })   
-         }
+        loaderHeight.value = withTiming(0, { duration: 600 });
+      }
     },
-    [  loaderHeight],
+    [loaderHeight],
   );
 
   return (

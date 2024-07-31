@@ -18,8 +18,6 @@ const SuspensePlaceholder: React.FC = () => {
   return null;
 };
 
-export const SplashScreenSuspense: React.FC<PropsWithChildren> = ({
-  children,
-}) => {
+export const SplashScreenSuspense: React.FC<PropsWithChildren> = ({ children }) => {
   return <Suspense fallback={<SuspensePlaceholder />}>{children}</Suspense>;
 };

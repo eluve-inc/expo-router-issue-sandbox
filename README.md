@@ -1,6 +1,8 @@
 # expo-router-issue-sandbox
 barebones Expo Go project that is meant to showcase questions/issues with expo-router
 
+Related issue: https://github.com/expo/expo/issues/27894
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
