@@ -6,10 +6,13 @@ import { View, Text } from 'react-native';
 export default function UserScreen() {
   // NOte: https://github.com/expo/expo/issues/27894#issuecomment-2023985789
   // using Slot creates a node in the heirarchy... so we can get its parent to get the actual stack navigator
-  const navigation = useNavigation().getParent();
+  //   const navigation = useNavigation().getParent();
+
+  // https://github.com/expo/expo/issues/24553#issuecomment-1978409417
+  const navigation = useNavigation('/(authenticated)');
 
   useEffect(() => {
-    navigation?.setOptions({
+    navigation.setOptions({
       headerShown: true,
       headerTitle: () => <ThemedText>Test User</ThemedText>,
     });
@@ -19,8 +22,6 @@ export default function UserScreen() {
     <>
       <Stack.Screen
         options={{
-          title: 'test',
-          headerShown: true,
           headerTitle: () => <ThemedText>Test User</ThemedText>,
         }}
       />
