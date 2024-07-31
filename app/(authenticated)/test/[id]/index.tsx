@@ -20,11 +20,11 @@ export default function UserScreen() {
 
   return (
     <>
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerTitle: () => <ThemedText>Test User</ThemedText>,
         }}
-      />
+      /> */}
       <View>
         <ThemedText>User</ThemedText>
       </View>
